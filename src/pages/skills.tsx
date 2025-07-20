@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 import { Canvas } from '@react-three/fiber';
-import { Text } from '@react-three/drei';
 import { useRef } from 'react';
 import { useFrame } from '@react-three/fiber';
 import { ParticlesBackground } from '@/components/ui/particles-background';
@@ -28,16 +27,6 @@ const SkillBubble = ({ text, position, color }: { text: string; position: [numbe
         transparent
         opacity={0.8}
       />
-      <Text
-        position={[0, 0, 0.81]}
-        fontSize={0.2}
-        color="white"
-        anchorX="center"
-        anchorY="middle"
-        font="/fonts/inter-bold.woff"
-      >
-        {text}
-      </Text>
     </mesh>
   );
 };
@@ -116,7 +105,13 @@ export const Skills = () => {
           transition={{ delay: 0.3, duration: 1 }}
           className="h-96 mb-16 rounded-2xl overflow-hidden"
         >
-          <Canvas camera={{ position: [0, 0, 6], fov: 50 }}>
+          <Canvas 
+            camera={{ position: [0, 0, 6], fov: 50 }}
+            onCreated={({ gl }) => {
+              gl.setClearColor('#000000', 0);
+            }}
+            fallback={<div className="w-full h-full bg-gradient-cosmic rounded-2xl flex items-center justify-center text-white text-xl">3D Skills Visualization</div>}
+          >
             <SkillsScene />
           </Canvas>
         </motion.div>

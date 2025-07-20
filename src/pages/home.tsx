@@ -44,9 +44,15 @@ export const Home = () => {
       {/* Particles Background */}
       <ParticlesBackground />
 
-      {/* 3D Floating Shapes */}
+      {/* 3D Floating Shapes - with error boundary */}
       <div className="absolute inset-0 z-10 pointer-events-none">
-        <Canvas camera={{ position: [0, 0, 5], fov: 50 }}>
+        <Canvas 
+          camera={{ position: [0, 0, 5], fov: 50 }}
+          onCreated={({ gl }) => {
+            gl.setClearColor('#000000', 0);
+          }}
+          fallback={<div className="w-full h-full bg-transparent" />}
+        >
           <FloatingShapes />
         </Canvas>
       </div>
