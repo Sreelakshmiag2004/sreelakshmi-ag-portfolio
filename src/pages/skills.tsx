@@ -69,20 +69,12 @@ const skillsData = [
 // Projects data
 const projects = [
   {
-    title: "BOLLBOT",
-    subtitle: "AI for Cotton Pest Control",
-    description: "Advanced machine learning solution for identifying and controlling cotton pests, helping farmers make data-driven decisions for crop protection.",
-    tech: ["Python", "AI/ML", "Computer Vision", "Data Analysis"],
-    link: "https://tinyurl.com/BOLLBOTPRJ",
-    type: "AI/ML",
-    color: "cosmic-blue"
-  },
-  {
     title: "MindMate",
     subtitle: "Mental Wellness App",
     description: "Comprehensive mental health platform providing personalized wellness tracking, mood analysis, and therapeutic resources for users.",
     tech: ["Mobile Dev", "UI/UX", "Psychology", "User Research"],
     link: "https://tinyurl.com/MindMatePrj",
+    code: "https://github.com/YUVARAJ-2K3/MindMate.git",
     type: "Mobile App",
     color: "cosmic-purple"
   },
@@ -91,7 +83,8 @@ const projects = [
     subtitle: "Safety Monitoring Platform",
     description: "Real-time analytics webpage focused on women's safety metrics, data visualization, and emergency response coordination.",
     tech: ["Web Dev", "Data Analytics", "Real-time Processing", "Visualization"],
-    link: "https://sreelakshmiag2004.github.io/project-echoguard/",
+    link: "https://sreelakshmiag2004.github.io/Stalwart/hotspot.html",
+    code: "https://github.com/Sreelakshmiag2004/Stalwart",
     type: "Web Application",
     color: "cosmic-cyan"
   },
@@ -103,6 +96,15 @@ const projects = [
     link: "https://ik.imagekit.io/Sree/Record_2025-04-27-19-53-55.mp4",
     type: "UI/UX",
     color: "cosmic-pink"
+  },
+  {
+    title: "BOLLBOT (Ongoing Project)",
+    subtitle: "AI for Cotton Pest Control",
+    description: "Advanced machine learning solution for identifying and controlling cotton pests, helping farmers make data-driven decisions for crop protection.",
+    tech: ["Python", "AI/ML", "Computer Vision", "Data Analysis"],
+    link: "https://tinyurl.com/BOLLBOTPRJ",
+    type: "AI/ML",
+    color: "cosmic-blue"
   }
 ];
 
@@ -485,7 +487,7 @@ export const Skills = () => {
                   <div>
                     <h4 className="font-semibold text-lg">Computer Science and Engineering</h4>
                     <p className="text-base text-primary font-medium">Sri Sairam Engineering College</p>
-                    <p className="text-sm text-accent">CGPA: 8.85 (till 4th semester)</p>
+                    <p className="text-sm text-accent">CGPA: 8.85 (till 3rd sem)</p>
                   </div>
                 </div>
               </motion.div>
@@ -708,14 +710,30 @@ export const Skills = () => {
                         {isVideo ? 'Watch Demo' : 'View Project'}
                       </motion.a>
                       
-                      <motion.button
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        className="btn-ghost flex items-center gap-2"
-                      >
-                        <Github size={16} />
-                        Code
-                      </motion.button>
+                      {project.title.startsWith('BOLLBOT') ? null : (
+                        project.code ? (
+                          <motion.a
+                            href={project.code}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            className="btn-ghost flex items-center gap-2"
+                          >
+                            <Github size={16} />
+                            Code
+                          </motion.a>
+                        ) : (
+                          <motion.button
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            className="btn-ghost flex items-center gap-2"
+                          >
+                            <Github size={16} />
+                            Code
+                          </motion.button>
+                        )
+                      )}
                     </div>
                   </div>
 
@@ -970,19 +988,19 @@ export const Skills = () => {
                   {[
                     {
                       name: "LinkedIn",
-                      url: "https://tinyurl.com/SreeLinkedin",
+                      url: "https://www.linkedin.com/in/sree-lakshmi-a-g-23a867281/",
                       icon: Linkedin,
                       color: "text-blue-400 hover:text-blue-300"
                     },
                     {
                       name: "GitHub",
-                      url: "#",
+                      url: "https://github.com/Sreelakshmiag2004",
                       icon: Github,
                       color: "text-gray-400 hover:text-gray-300"
                     },
                     {
                       name: "Email",
-                      url: "mailto:contact@sreelakshmi.dev",
+                      url: "mailto:sreelakshmiag2004@gmail.com",
                       icon: Mail,
                       color: "text-accent hover:text-accent-glow"
                     }
