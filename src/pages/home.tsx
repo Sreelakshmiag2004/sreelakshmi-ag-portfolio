@@ -30,7 +30,7 @@ export const Home = () => {
     <div className="relative min-h-screen overflow-hidden">
       {/* Background Image */}
       <div 
-        className="absolute inset-0 z-0"
+        className="absolute inset-0"
         style={{
           backgroundImage: `url(${cosmicBg})`,
           backgroundSize: 'cover',
@@ -41,11 +41,13 @@ export const Home = () => {
         <div className="absolute inset-0 bg-background/80 backdrop-blur-[1px]" />
       </div>
 
-      {/* Particles Background */}
-      <ParticlesBackground />
+      {/* Particles Background - ensure visible above overlay */}
+      <div className="absolute inset-0 z-10 pointer-events-none">
+        <ParticlesBackground />
+      </div>
 
       {/* 3D Floating Shapes - with error boundary */}
-      <div className="absolute inset-0 z-10 pointer-events-none">
+      <div className="absolute inset-0 z-20 pointer-events-none">
         <Canvas 
           camera={{ position: [0, 0, 5], fov: 50 }}
           onCreated={({ gl }) => {

@@ -483,9 +483,9 @@ export const Skills = () => {
                 <h3 className="text-2xl font-bold mb-4 text-gradient">Education</h3>
                 <div className="space-y-3">
                   <div>
-                    <h4 className="font-semibold text-lg">Computer Science Engineering</h4>
-                    <p className="text-muted-foreground">Pursuing Bachelor's Degree</p>
-                    <p className="text-sm text-accent">CGPA: Excellent Academic Performance</p>
+                    <h4 className="font-semibold text-lg">Computer Science and Engineering</h4>
+                    <p className="text-base text-primary font-medium">Sri Sairam Engineering College</p>
+                    <p className="text-sm text-accent">CGPA: 8.85 (till 4th semester)</p>
                   </div>
                 </div>
               </motion.div>
@@ -519,14 +519,14 @@ export const Skills = () => {
               
               {[
                 {
-                  year: "2024",
-                  title: "AI Innovation",
-                  description: "Developed BOLLBOT - AI solution for cotton pest control using advanced machine learning algorithms"
+                  year: "2025",
+                  title: "Mobile Development",
+                  description: "Created MindMate - A comprehensive mental wellness application with user-centric design"
                 },
                 {
                   year: "2024",
-                  title: "Mobile Development",
-                  description: "Created MindMate - A comprehensive mental wellness application with user-centric design"
+                  title: "AI Innovation",
+                  description: "Developed BOLLBOT - AI solution for cotton pest control using advanced machine learning algorithms"
                 },
                 {
                   year: "2023",
@@ -559,7 +559,7 @@ export const Skills = () => {
 
       {/* SKILLS SECTION */}
       <section id="skills" className="relative min-h-screen pt-24 px-6">
-        <div className="relative z-10 max-w-6xl mx-auto skills-cosmic-bg p-8">
+        <div className="relative z-10 max-w-6xl mx-auto">
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -589,31 +589,25 @@ export const Skills = () => {
                 <TooltipTrigger asChild>
                   <motion.div
                     variants={itemVariants}
-                    whileHover={{ scale: 1.07, y: -8 }}
-                    className="card-cosmic text-center group cursor-pointer transition-shadow cosmic-gradient-border"
-                    style={{ position: 'relative', overflow: 'visible' }}
+                    whileHover={{ scale: 1.05, y: -5 }}
+                    className="card-cosmic text-center group cursor-pointer transition-shadow"
                   >
-                    {/* Top Skill Badge */}
-                    {skill.level >= 90 && (
-                      <span className="absolute top-3 left-3 z-20 px-2 py-1 text-xs font-bold rounded-full bg-gradient-to-r from-primary to-secondary text-primary-foreground shadow-lg animate-pulse">
-                        Top Skill
-                      </span>
-                    )}
-                    <div className="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center bg-white shadow-glow transition-all duration-300 group-hover:shadow-glow-intense cosmic-glow-pulse group-hover:scale-110">
+                    <div className="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center bg-white shadow-glow transition-all duration-300 group-hover:shadow-glow-intense">
                       {techLogos[skill.name]}
                     </div>
-                    <h3 className="font-semibold mb-2 transition-transform duration-300 group-hover:scale-105 group-hover:text-gradient">
-                      {skill.name}
-                    </h3>
-                    <div className="w-full bg-muted/30 rounded-full h-2 mb-2">
+                    <h3 className="font-semibold mb-2">{skill.name}</h3>
+                    {/* New attractive skill bar */}
+                    <div className="w-full cosmic-skill-bar mb-3">
                       <motion.div
-                        className="h-2 rounded-full"
-                        style={{ backgroundColor: skill.color }}
+                        className="cosmic-skill-bar-fill"
+                        style={{ width: `${skill.level}%` }}
                         initial={{ width: 0 }}
                         whileInView={{ width: `${skill.level}%` }}
                         viewport={{ once: true }}
                         transition={{ delay: index * 0.1, duration: 1 }}
-                      />
+                      >
+                        <span className="cosmic-skill-bar-label">{skill.level}%</span>
+                      </motion.div>
                     </div>
                     <p className="text-xs text-muted-foreground">{skill.category}</p>
                     {/* Glow overlay for unified effect */}

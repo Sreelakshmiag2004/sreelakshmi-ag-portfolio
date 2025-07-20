@@ -12,7 +12,7 @@ export const ParticlesBackground = () => {
     <Particles
       id="cosmic-particles"
       init={particlesInit}
-      className="absolute inset-0 z-0"
+      className="absolute inset-0 z-10"
       options={{
         background: {
           color: {
@@ -44,7 +44,7 @@ export const ParticlesBackground = () => {
         },
         particles: {
           color: {
-            value: ["#60A5FA", "#A855F7", "#06B6D4", "#EC4899"],
+            value: ["#ffffff", "#60A5FA", "#A855F7", "#06B6D4", "#EC4899"],
           },
           links: {
             color: "#60A5FA",
@@ -68,10 +68,10 @@ export const ParticlesBackground = () => {
               enable: true,
               area: 800,
             },
-            value: 80,
+            value: 120,
           },
           opacity: {
-            value: { min: 0.3, max: 0.8 },
+            value: { min: 0.7, max: 1 },
             animation: {
               enable: true,
               speed: 1,
@@ -82,7 +82,7 @@ export const ParticlesBackground = () => {
             type: "circle",
           },
           size: {
-            value: { min: 1, max: 3 },
+            value: { min: 1, max: 2 },
             animation: {
               enable: true,
               speed: 2,
