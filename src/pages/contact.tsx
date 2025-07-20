@@ -11,23 +11,6 @@ export const Contact = () => {
     message: '',
     portfolio: '',
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const { toast } = useToast();
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    // Simulate form submission (in real app, integrate with EmailJS or backend)
-    setTimeout(() => {
-      toast({
-        title: "Message Sent!",
-        description: "Thank you for reaching out. I'll get back to you soon!",
-      });
-      setFormData({ name: '', email: '', message: '', portfolio: '' });
-      setIsSubmitting(false);
-    }, 1000);
-  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
@@ -36,10 +19,16 @@ export const Contact = () => {
     });
   };
 
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    alert('Thank you for contacting me! I will respond soon.');
+    setFormData({ name: '', email: '', message: '', portfolio: '' });
+  };
+
   const socialLinks = [
     {
       name: "LinkedIn",
-      url: "https://tinyurl.com/SreeLinkedin",
+      url: "https://www.linkedin.com/in/sreelakshmiag/", // Updated LinkedIn URL
       icon: Linkedin,
       color: "text-blue-400 hover:text-blue-300"
     },
@@ -51,7 +40,7 @@ export const Contact = () => {
     },
     {
       name: "Email",
-      url: "mailto:contact@sreelakshmi.dev",
+      url: "mailto:sreelakshmiag2004@gmail.com",
       icon: Mail,
       color: "text-accent hover:text-accent-glow"
     }
@@ -86,100 +75,88 @@ export const Contact = () => {
           >
             <h3 className="text-2xl font-bold mb-6 text-gradient">Send a Message</h3>
             
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form
+              onSubmit={handleSubmit}
+              className="space-y-6"
+            >
               <div className="relative">
                 <label htmlFor="name" className="block text-sm font-medium mb-2">
                   Full Name *
                 </label>
                 <div className="relative">
                   <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground" size={18} />
-                  <motion.input
-                    whileFocus={{ scale: 1.02 }}
+                  <input
                     type="text"
                     id="name"
                     name="name"
+                    required
                     value={formData.name}
                     onChange={handleChange}
-                    required
                     className="w-full pl-10 pr-4 py-3 bg-muted/20 border border-border rounded-xl focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-300 text-foreground"
-                    placeholder="Your name"
+                    placeholder="Your Name"
                   />
                 </div>
               </div>
-
               <div className="relative">
                 <label htmlFor="email" className="block text-sm font-medium mb-2">
                   Email Address *
                 </label>
                 <div className="relative">
                   <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground" size={18} />
-                  <motion.input
-                    whileFocus={{ scale: 1.02 }}
+                  <input
                     type="email"
                     id="email"
                     name="email"
+                    required
                     value={formData.email}
                     onChange={handleChange}
-                    required
                     className="w-full pl-10 pr-4 py-3 bg-muted/20 border border-border rounded-xl focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-300 text-foreground"
-                    placeholder="your.email@example.com"
+                    placeholder="Your Email"
                   />
                 </div>
               </div>
-
               <div className="relative">
                 <label htmlFor="portfolio" className="block text-sm font-medium mb-2">
                   Portfolio/Website (Optional)
                 </label>
                 <div className="relative">
                   <ExternalLink className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground" size={18} />
-                  <motion.input
-                    whileFocus={{ scale: 1.02 }}
+                  <input
                     type="url"
                     id="portfolio"
                     name="portfolio"
                     value={formData.portfolio}
                     onChange={handleChange}
                     className="w-full pl-10 pr-4 py-3 bg-muted/20 border border-border rounded-xl focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-300 text-foreground"
-                    placeholder="https://yourportfolio.com"
+                    placeholder="Your Portfolio/Website"
                   />
                 </div>
               </div>
-
               <div className="relative">
                 <label htmlFor="message" className="block text-sm font-medium mb-2">
                   Message *
                 </label>
                 <div className="relative">
                   <MessageSquare className="absolute left-3 top-4 text-muted-foreground" size={18} />
-                  <motion.textarea
-                    whileFocus={{ scale: 1.02 }}
+                  <textarea
                     id="message"
                     name="message"
+                    required
                     value={formData.message}
                     onChange={handleChange}
-                    required
                     rows={5}
                     className="w-full pl-10 pr-4 py-3 bg-muted/20 border border-border rounded-xl focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-300 text-foreground resize-none"
-                    placeholder="Tell me about your project or just say hello!"
+                    placeholder="Your Message"
                   />
                 </div>
               </div>
-
-              <motion.button
+              <button
                 type="submit"
-                disabled={isSubmitting}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="w-full btn-cosmic flex items-center justify-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full btn-cosmic flex items-center justify-center gap-3"
               >
-                {isSubmitting ? (
-                  <div className="w-5 h-5 border-2 border-primary-foreground border-t-transparent rounded-full animate-spin" />
-                ) : (
-                  <Send size={20} />
-                )}
-                {isSubmitting ? 'Sending...' : 'Send Message'}
-              </motion.button>
+                <Send size={20} />
+                Send Message
+              </button>
             </form>
           </motion.div>
 
@@ -203,7 +180,7 @@ export const Contact = () => {
                 <div className="flex items-start gap-3">
                   <div className="w-2 h-2 bg-secondary rounded-full mt-2 flex-shrink-0"></div>
                   <p className="text-muted-foreground">
-                    <span className="text-secondary font-semibold">User-Centered:</span> Every project focuses on creating meaningful experiences for end users.
+                    <span className="text-secondary font-semibold">User -Centered:</span> Every project focuses on creating meaningful experiences for end users.
                   </p>
                 </div>
                 <div className="flex items-start gap-3">

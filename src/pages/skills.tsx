@@ -815,7 +815,7 @@ export const Skills = () => {
               </motion.a>
 
               <div className="mt-8 text-sm text-muted-foreground">
-                Last updated: January 2025 • PDF Format • 2 Pages
+                Last updated: June 2024 • PDF Format • 2 Pages
               </div>
             </motion.div>
           </motion.div>

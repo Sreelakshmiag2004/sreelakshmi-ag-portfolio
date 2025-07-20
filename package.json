@@ -8,7 +8,8 @@
     "build": "vite build",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "vite build && gh-pages -d dist"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
@@ -45,13 +46,17 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cmdk": "^1.0.0",
+    "cors": "^2.8.5",
     "date-fns": "^3.6.0",
     "emailjs-com": "^3.2.0",
     "embla-carousel-react": "^8.3.0",
+    "express": "^5.1.0",
+    "firebase": "^12.0.0",
     "framer-motion": "^12.23.6",
     "input-otp": "^1.2.4",
     "lucide-react": "^0.462.0",
     "next-themes": "^0.3.0",
+    "nodemailer": "^7.0.5",
     "react": "^18.3.1",
     "react-day-picker": "^8.10.1",
     "react-dom": "^18.3.1",
@@ -88,5 +93,18 @@
     "typescript": "^5.5.3",
     "typescript-eslint": "^8.0.1",
     "vite": "^5.4.1"
-  }
+  },
+  "description": "Welcome to my personal portfolio! This site showcases my journey, skills, and projects as a Computer Science and Engineering student passionate about building real-world solutions with code and creativity.",
+  "main": "eslint.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sreelakshmiag2004/sreelakshmi-ag-portfolio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sreelakshmiag2004/sreelakshmi-ag-portfolio/issues"
+  },
+  "homepage": "https://zingy-speculoos-99d980.netlify.app"
 }
